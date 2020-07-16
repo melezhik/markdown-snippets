@@ -40,7 +40,22 @@ resource "aws_instance" "example3" {
 }
 ```
 
-
+```raku
+[
+  {
+    host => "ec2-54-237-6-19.compute-1.amazonaws.com".Str,
+    tags => "frontend,name=frontend,aws,ip=54.237.6.19,backend_ip=52.23.177.193,database_ip=54.90.19.170".Str,
+  },
+  {
+    host => "ec2-52-23-177-193.compute-1.amazonaws.com".Str,
+    tags => "backend,name=backend,aws,ip=52.23.177.193,backend_ip=52.23.177.193,database_ip=54.90.19.170".Str,
+  },
+  {
+    host => "ec2-54-90-19-170.compute-1.amazonaws.com".Str,
+    tags => "database,name=database,aws,ip=54.90.19.170,backend_ip=52.23.177.193,database_ip=54.90.19.170".Str,
+  },
+]
+```
 ```raku
 use JSON::Tiny;
 use Data::Dump;
