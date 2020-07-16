@@ -95,3 +95,19 @@ if tags()<database> {
 } elsif tags()<fronted> {
 }
 ```
+```raku
+
+  my %state = task-run "set mysql", "set-mysql", %(
+    user => "test",
+    database => "test",
+    allow_host => tags()<backend_ip>,
+  );
+
+  say %state.perl;
+
+  if %state<restart> {
+
+    service-restart "mysql";
+
+  }
+```
