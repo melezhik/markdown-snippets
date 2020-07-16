@@ -87,3 +87,11 @@ for @aws-instances -> $i {
   $i<tags> ~= ",database_ip={$database-ip}"
 }
 ```
+
+```raku
+
+if tags()<database> {
+} elsif tags()<backend> {
+} elsif tags()<fronted> {
+}
+```
